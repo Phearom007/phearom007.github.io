@@ -7,6 +7,9 @@ else {
     ready();
 }
 
+window.cartIconClick = function() {
+    alert(100);
+}
 
 function getQueryParam() {
     var search = window.location.search;
@@ -118,7 +121,7 @@ function ready() {
             menuHtml += '<li><a href="' + menu.href + '" class="' + active + '">' + menu.title + '</a></li>';
         }
 
-        menuHtml += '<li><a href="#"><i class="bx bx-shopping-bag" id="cart-icon"></i></a></li>';
+        menuHtml += '<li><a href="#"><i class="bx bx-shopping-bag cart-icon" id="cart-icon"></i></a></li>';
 
         menuContent1.innerHTML = menuHtml;
         menuContent2.innerHTML = menuHtml;
@@ -127,13 +130,22 @@ function ready() {
 
         //Cart
         let cart = document.querySelector(".cart");
-        let cartIcon = document.querySelector("#cart-icon");
+        // let cartIcon = document.querySelector("#cart-icon");
         let closeCart = document.querySelector("#close-cart");
+        let cartIcon = document.querySelectorAll(".cart-icon");
+
+
+        cartIcon.forEach(icon => {
+            icon.onclick = () => {
+                cart.classList.toggle("active");
+            };
+        });
 
         //Open cart
-        cartIcon.onclick = () => {
-            cart.classList.add("active");
-        };
+        // cartIcon.onclick = () => {
+        //     alert(11);
+        //     cart.classList.add("active");
+        // };
         //Remove cart
         closeCart.onclick = () => {
             cart.classList.remove("active");
@@ -169,7 +181,7 @@ function ready() {
 
     // Render page content
     var bodyContent = document.getElementById("page-content");
-    var contentPage = params ? params.content : 'home';
+    var contentPage = params.content ? params.content : 'home';
 
     if (contentPage == "home") {
         const content = createElementWithClass("div", "home-page");
@@ -185,7 +197,16 @@ function ready() {
         bodyContent.appendChild(content);
     }
 
+    const bar = document.getElementById('bar');
+    const nav = document.getElementById('horizontal-menu');
 
+    
+    if (bar) {
+        bar.addEventListener("click", () => {
+            console.log("bar.click");
+            nav.classList.toggle('active');
+        })
+    }
 
 
     {/* <div class="product-box">
@@ -278,14 +299,7 @@ function updatetotal() {
     }
 }
 // Cart Mobile
-const bar = document.getElementById('bar');
-const nav = document.getElementById('navbar1');
 
-if (bar) {
-    bar.addEventListener("click", () => {
-        nav.classList.add("active");
-    })
-}
 
 
 
