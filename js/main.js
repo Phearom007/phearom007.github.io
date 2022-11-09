@@ -63,14 +63,14 @@ function ready() {
     // from = (itemPerPage - 1) * (page-1)
 
     // Get current page from query params
-    var params = getQueryParam();
+    var params = getQueryParam() || {};
 
     // Render posts withh pagination
     var postsList = document.getElementById("post-container");
     var postsPage = document.getElementById("pagination");
 
-    var currentPage = params ? params.page : 1;
-    var itemPerPage = params ? params.size : 4;
+    var currentPage = params.page  ? params.page : 1;
+    var itemPerPage = params.size ? params.size : 4;
 
     console.log('params: ', params);
     console.log('currentPage: ', currentPage);
@@ -119,7 +119,6 @@ function ready() {
         }
 
         menuHtml += '<li><a href="#"><i class="bx bx-shopping-bag" id="cart-icon"></i></a></li>';
-        menuHtml += '<li><a href="#"><i class="bx bx-menu" id="bar"></i></a></li>';
 
         menuContent1.innerHTML = menuHtml;
         menuContent2.innerHTML = menuHtml;
