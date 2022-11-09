@@ -6,127 +6,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shpoping Online</title>
     <!-- Link to css-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-copy.css">
     <!--Link to boxicon-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Link to fontawsome-->
+    <script src="https://kit.fontawesome.com/c13dbcedf1.js" crossorigin="anonymous"></script>
  
 </head>
 <body>
     <section id="page-header">
     </section>
-    <header>
+
+    <header style="background-color: yellow;">
+        
+        
         <!--nav-->
         <div class="nav container">
             <a href="#"><img src="img/page1/lv-logo.png" class="logo" >Shopping Online</a>
-            <div>
+            <div class="top-menu">
                 <ul id="navbar">
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-            <!--cart icon-->
-            <i class='bx bx-shopping-bag' id="cart-icon"></i>
-            <!--cart-->
-            <div class="cart">
-                <h2 class="cart-title">Your Cart</h2>
-                <!--content-->
-                <div class="cart-content">
-                    
+                    <!-- <li><a href="?content=home" class="active" href="/">Home</a></li>
+                    <li><a href="?content=shop">Shop</a></li>
+                    <li><a href="?content=blog">Blog</a></li>
+                    <li><a href="?content=about">About</a></li>
+                    <li><a href="?content=contact">Contact</a></li> -->
+                
+                <!--cart icon-->
+                <!-- <li><a href="javasrcipt:void();"><i class='bx bx-shopping-bag' id="cart-icon"></i></a></li> -->
+                <!--cart-->
+                </ul>  
+                <div class="cart">
+                    <h2 class="cart-title">Your Cart</h2>
+                    <!--content-->
+                    <div class="cart-content"></div>
+                    <!-- Total -->
+                    <div class="total">
+                        <div class="total-title">Total</div>
+                        <div class="total-price">$0</div> 
+                    </div>
+                    <!-- Buy Btn -->
+                    <button type="button" class="btn-buy">Buy Now</button>
+                    <!-- Cart Close -->
+                    <i class='bx bx-x' id="close-cart"></i>
                 </div>
-                <!-- Total -->
-                <div class="total">
-                    <div class="total-title">Total</div>
-                    <div class="total-price">$0</div> 
-                </div>
-                <!-- Buy Btn -->
-                <button type="button" class="btn-buy">Buy Now</button>
-                <!-- Cart Close -->
-                <i class='bx bx-x' id="close-cart"></i>
             </div>
+        </div> 
+        <!-- Outdent -->
+        <div id="mobile">
+            <a href="/cart.html"><i class='bx bx-shopping-bag'></i></a>
+            <i id="bar" class="fa-solid fa-outdent"></i>
         </div>
+                
     </header>
+
+    <section class="container" id="page-content">
+        <!-- JS will render content here -->
+    </section>
+
     <!--shop-->
     <section class="shop container">
+        <div class="left-menu">
+            <ul id="navbar1">
+                <li><a class="active" href="/">Home</a></li>
+                <li><a href="/shop.html">Shop</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </div>
         <h2 class="section-title">Popular Products</h2>
         <!--content-->
-        <div class="shop-content">
-            <!--box1-->
-            <div class="product-box">
-                <img src="img/page1/dior1.png" alt="" class="product-img">
-                <h2 class="product-title">Christian Dior</h2>
-                <span class="price">$2104</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box2-->
-             <div class="product-box">
-                <img src="img/page1/gucci1.png" alt="" class="product-img">
-                <h2 class="product-title">Gucci</h2>
-                <span class="price">$2285</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box3-->
-             <div class="product-box">
-                <img src="img/page1/balenciaga1.png" alt="" class="product-img">
-                <h2 class="product-title">Balenciaga</h2>
-                <span class="price">$740</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box4-->
-             <div class="product-box">
-                <img src="img/page1/balenciaga2.png" alt="" class="product-img">
-                <h2 class="product-title">Balenciaga</h2>
-                <span class="price">$520</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box5-->
-             <div class="product-box">
-                <img src="img/page1/lv1.png" alt="" class="product-img">
-                <h2 class="product-title">Louis Vuitton</h2>
-                <span class="price">$1342</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box6-->
-             <div class="product-box">
-                <img src="img/page1/ferragamo.png" alt="" class="product-img">
-                <h2 class="product-title">Ferragamo</h2>
-                <span class="price">$376</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box7-->
-             <div class="product-box">
-                <img src="img/page1/rolex.png" alt="" class="product-img">
-                <h2 class="product-title">Diw(Designa Individual Watches)</h2>
-                <span class="price">$57719</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-             <!--box8-->
-             <div class="product-box">
-                <img src="img/page1/prada1.png" alt="" class="product-img">
-                <h2 class="product-title">Pradar</h2>
-                <span class="price">$1380</span>
-                <i class='bx bx-shopping-bag add-cart'></i>
-            </div>
-            <section id="feature">
-                <div class="fe-box">
-                    <img src="img/page1/feature1.png" alt="">
-                    <h6>Free Shipping</h6>
-                </div>
-            </section>
+        <div class="shop-content" id="post-container">
+            <!-- JS will render prouct here by pagination -->
         </div>
+        <section id="pagination" section-p1>
+            <!-- <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a> -->
+        </section>
         
     </section>
+
+    <section id="feature" class="section-p1 container">
+        <div class="fe-box">
+            <img src="img/page1/feature1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/page1/feature1.png" alt="">
+            <h6>Order Online</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/page1/feature1.png" alt="">
+            <h6>Promotion</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/page1/feature1.png" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/page1/feature1.png" alt="">
+            <h6>24/7 Support</h6>
+        </div>
+    </section>
     
-    <section id="pagination" section-p1>
+    
+
+    <section  id="newsletter">
+        <div class="newstext">
+            <h4>Sign Up For Newsletters</h4>
+            <p>Get Email update about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
     </section>
-    <section id="pagination" section-p1>
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-    </section>
+
+    <!--Footer-->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="img/page1/lv-logo.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Ang Ta Minh Street, Sensok, Phnom Penh</p>
+            <p><strong>Phone:</strong> +855 96 676 14 13, 18 86 80 619</p>
+            <p><strong>Hour:</strong> 10:10 - 19:30. Mon - Sun</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <img src="img/page1/media-icon.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a hre="#"> About us</a>
+            <a hre="#"> Delivery Information</a>
+            <a hre="#"> Privacy Policy</a>
+            <a hre="#"> Terms & Conditions</a>
+            <a hre="#"> Contact Us</a>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a hre="#"> About us</a>
+            <a hre="#"> Delivery Information</a>
+            <a hre="#"> Privacy Policy</a>
+            <a hre="#"> Terms & Conditions</a>
+            <a hre="#"> Contact Us</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store & Google Play</p>
+            <div class="row">
+                <img src="img/page1/appstore.png" alt="">
+                <img src="img/page1/googleplay.png" alt="">
+            <p>Secured Payment Gateways </p>
+            <img class="payment" src="img/page1/payment2.png" alt="">
+        </div>
+        </div>
+        
+    </footer>
        <!-- Link to Js -->
+       <script src="js/data.js"></script>
        <script src="js/main.js"></script>
 </body>
 </html>
