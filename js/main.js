@@ -108,8 +108,8 @@ function ready() {
 
 
     // Render menu
-    var menuContent = document.getElementById("navbar");
-    var menuContent1 = document.getElementById("navbar1");
+    var menuContent1 = document.getElementById("vertical-menu");
+    var menuContent2 = document.getElementById("horizontal-menu");
 
     if (menus) {
         var menuHtml = '';
@@ -119,9 +119,10 @@ function ready() {
         }
 
         menuHtml += '<li><a href="#"><i class="bx bx-shopping-bag" id="cart-icon"></i></a></li>';
+        menuHtml += '<li><a href="#"><i class="bx bx-menu" id="bar"></i></a></li>';
 
-        menuContent.innerHTML = menuHtml;
         menuContent1.innerHTML = menuHtml;
+        menuContent2.innerHTML = menuHtml;
 
 
 
