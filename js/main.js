@@ -79,35 +79,7 @@ function ready() {
     console.log('currentPage: ', currentPage);
     console.log('posts: ', posts);
 
-    if (posts) {
-
-        // Calculation posts per page
-        const startIndex = (itemPerPage) * (currentPage - 1);
-        const endIndex = ((itemPerPage) * currentPage);
-
-        console.log(startIndex + " " + endIndex);
-
-        for (var index = startIndex; index < endIndex; index++) {
-            const post = posts[index];
-            var product = createProductElement(post);
-            postsList.appendChild(product);
-        }
-
-        // Calculation total page of total items
-        var totalPages = Math.ceil(posts.length / itemPerPage);
-
-        var page = 1;
-
-        while (page <= totalPages) {
-            console.log('page: ', page)
-            var pageText = document.createTextNode(page);
-            var link = createElementWithClass("a", page == currentPage ? "active" : "");
-            link.setAttribute("href", "?page=" + page);
-            link.appendChild(pageText);
-            postsPage.appendChild(link);
-            page++;
-        }
-    }
+   
 
 
     // Render menu
@@ -177,18 +149,68 @@ function ready() {
 
     }
 
-
-
     // Render page content
     var bodyContent = document.getElementById("page-content");
     var contentPage = params.content ? params.content : 'home';
+    var contentPage = params.content ? params.content : 'shop';
 
     if (contentPage == "home") {
         const content = createElementWithClass("div", "home-page");
-        content.innerHTML = "<h1>Hello home Page</h1>";
-        content.innerHTML += "<p>Content of home page</p>";
+        // content.innerHTML = "<h1>Hello home Page</h1>";
+        // content.innerHTML += "<p>Content of home page</p>";
+        content.innerHTML=`<img src="img/page1/home-page-img.png" id="img-homepage">`;
         bodyContent.appendChild(content);
 
+    } else if (contentPage == "shop") {
+        const content = createElementWithClass ("div", "shop-page");
+        content.innerHTML = '<h2 class="section-title">Popular Products</h2> ';
+        bodyContent.appendChild(content);
+        
+        if (posts) {
+
+            // Calculation posts per page
+            const startIndex = (itemPerPage) * (currentPage - 1);
+            const endIndex = ((itemPerPage) * currentPage);
+    
+            console.log(startIndex + " " + endIndex);
+    
+            for (var index = startIndex; index < endIndex; index++) {
+                const post = posts[index];
+                var product = createProductElement(post);
+                postsList.appendChild(product);
+            }
+    
+            // Calculation total page of total items
+            var totalPages = Math.ceil(posts.length / itemPerPage);
+    
+            var page = 1;
+    
+            while (page <= totalPages) {
+                console.log('page: ', page)
+                var pageText = document.createTextNode(page);
+                var link = createElementWithClass("a", page == currentPage ? "active" : "");
+                link.setAttribute("href", "?page=" + page);
+                link.appendChild(pageText);
+                postsPage.appendChild(link);
+                page++;
+            }
+        }
+    } else if (contentPage == "about") {
+        const content = createElementWithClass ("div", "about");
+        content.innerHTML = `<p><strong>About Us</strong><p>
+        <p><strong>Delivery Information</strong><p>
+        <p><strong>Privacy Policy</strong><p>
+        <p><strong>Terms & Conditions</strong><p>
+        <p><strong>Contact Us</strong><p>`;
+        bodyContent.appendChild(content);
+
+    } else if (contentPage == "contact") {
+        const content = createElementWithClass ("div", "contact");
+        content.innerHTML = `<h4>Contact</h4>
+        <p><strong>Address:</strong> Ang Ta Minh Street, Sensok, Phnom Penh</p>
+        <p><strong>Phone:</strong> +855 96 676 14 13, 18 86 80 619</p>
+        <p><strong>Hour:</strong> 10:10 - 19:30. Mon - Sun</p>`;
+        bodyContent.appendChild(content);
 
     } else {
         const content = createElementWithClass("div", contentPage + "-page");

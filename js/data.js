@@ -124,7 +124,7 @@ const posts = [
 const menus = [
   { href: "?content=home", title: "Home" },
   { href: "?content=shop", title: "Shop" },
-  { href: "?content=blog", title: "Blog" },
+  // { href: "?content=blog", title: "Blog" },
   { href: "?content=about", title: "About" },
   { href: "?content=contact", title: "Contact" },
 ];
