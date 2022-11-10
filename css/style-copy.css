@@ -395,6 +395,10 @@ left: 20px;
         padding: 20px;
         width: 100%;
     }
+    .product-box{
+        width: 70%;
+        margin-left: 15%;
+    }
     .product-img {
         width: 70%;
         margin-left: 15%;
