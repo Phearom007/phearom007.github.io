@@ -106,7 +106,6 @@ function ready() {
         let closeCart = document.querySelector("#close-cart");
         let cartIcon = document.querySelectorAll(".cart-icon");
 
-
         cartIcon.forEach(icon => {
             icon.onclick = () => {
                 cart.classList.toggle("active");
@@ -122,8 +121,6 @@ function ready() {
         closeCart.onclick = () => {
             cart.classList.remove("active");
         };
-
-
         var removeCartButton = document.getElementsByClassName("cart-remove");
     
         console.log(removeCartButton);
@@ -145,8 +142,6 @@ function ready() {
         }
         // Buy Button work
         document.getElementsByClassName("btn-buy")[0].addEventListener("click", buyButtonClicked);
-
-
     }
 
     // Render page content
@@ -179,6 +174,18 @@ function ready() {
                 var product = createProductElement(post);
                 postsList.appendChild(product);
             }
+
+             //Cart
+        let cart = document.querySelector(".cart");
+        // let cartIcon = document.querySelector("#cart-icon");
+        let closeCart = document.querySelector("#close-cart");
+        let cartIcon = document.querySelectorAll(".cart-icon");
+
+        cartIcon.forEach(icon => {
+            icon.onclick = () => {
+                cart.classList.toggle("active");
+            };
+        });
     
             // Calculation total page of total items
             var totalPages = Math.ceil(posts.length / itemPerPage);
