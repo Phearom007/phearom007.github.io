@@ -1,16 +1,4 @@
 
-//Cart working Js
-if (document.readyState == "loading") {
-    document.addEventListener("DOMContentLoaded", ready);
-}
-else {
-    ready();
-}
-
-window.cartIconClick = function() {
-    alert(100);
-}
-
 function getQueryParam() {
     var search = window.location.search;
     if (search) {
@@ -47,6 +35,8 @@ function createProductElement(product) {
     var button = createElementWithClass("i", 'bx bx-shopping-bag add-cart');
     var productElement = createElementWithClass("div", "product-box");
 
+    button.addEventListener('click', addCartClicked);
+
     productElement.appendChild(img);
     productElement.appendChild(title);
     productElement.appendChild(price);
@@ -55,11 +45,9 @@ function createProductElement(product) {
 }
 
 function isContentActive(content) {
-    console.log('content: ', content);
     return window.location.search.indexOf(content) != -1 ? 'active' : '';
 }
 
-//Function
 function ready() {
 
     // [[0,1,2,3] ,[4,5,6,7] ,[8,9,10,11] ,[12,13,14,15] ,[16,17,18,19]]
@@ -74,13 +62,6 @@ function ready() {
 
     var currentPage = params.page  ? params.page : 1;
     var itemPerPage = params.size ? params.size : 4;
-
-    console.log('params: ', params);
-    console.log('currentPage: ', currentPage);
-    console.log('posts: ', posts);
-
-   
-
 
     // Render menu
     var menuContent1 = document.getElementById("vertical-menu");
@@ -123,7 +104,6 @@ function ready() {
         };
         var removeCartButton = document.getElementsByClassName("cart-remove");
     
-        console.log(removeCartButton);
         for (var i = 0; i < removeCartButton.length; i++) {
             var button = removeCartButton[i];
             button.addEventListener("click", removeCartItem);
@@ -167,8 +147,6 @@ function ready() {
             const startIndex = (itemPerPage) * (currentPage - 1);
             const endIndex = ((itemPerPage) * currentPage);
     
-            console.log(startIndex + " " + endIndex);
-    
             for (var index = startIndex; index < endIndex; index++) {
                 const post = posts[index];
                 var product = createProductElement(post);
@@ -193,7 +171,6 @@ function ready() {
             var page = 1;
     
             while (page <= totalPages) {
-                console.log('page: ', page)
                 var pageText = document.createTextNode(page);
                 var link = createElementWithClass("a", page == currentPage ? "active" : "");
                 link.setAttribute("href", "?page=" + page);
@@ -232,7 +209,6 @@ function ready() {
     
     if (bar) {
         bar.addEventListener("click", () => {
-            console.log("bar.click");
             nav.classList.toggle('active');
         })
     }
@@ -245,7 +221,7 @@ function ready() {
     <i class='bx bx-shopping-bag add-cart'></i>
 </div> */}
 }
-// Buy button
+
 function buyButtonClicked() {
     alert("Your Order is placed");
     var cartContent = document.getElementsByClassName("cart-content")[0];
@@ -262,7 +238,7 @@ function quantityChanged(event) {
     }
     updatetotal();
 }
-// Add to Cart
+
 function addCartClicked(event) {
     var button = event.target;
     var shopProducts = button.parentElement;
@@ -303,14 +279,12 @@ function addProductToCart(title, price, productImg) {
         .addEventListener("change", quantityChanged);
 }
 
-
-//Remove Item from Cart
 function removeCartItem(event) {
     var buttonClicked = event.target;
     buttonClicked.parentElement.remove();
     updatetotal();
 }
-//Update Total
+
 function updatetotal() {
     var cartContent = document.getElementsByClassName("cart-content")[0];
     var cartBoxes = cartContent.getElementsByClassName("cart-box");
@@ -327,10 +301,8 @@ function updatetotal() {
         document.getElementsByClassName("total-price")[0].innerText = "$" + total;
     }
 }
-// Cart Mobile
 
-
-
+document.addEventListener("DOMContentLoaded", ready);
 
 
 
