@@ -170,7 +170,7 @@ function ready() {
         const content = createElementWithClass("div", "home-page");
         // content.innerHTML = "<h1>Hello home Page</h1>";
         // content.innerHTML += "<p>Content of home page</p>";
-        content.innerHTML=`<img src="img/page1/home-page-img.png" id="img-homepage">`;
+        content.innerHTML=`<img src="img/page1/men-style.jpg" id="img-homepage">`;
         bodyContent.appendChild(content);
 
     } else if (contentPage == "shop") {
@@ -363,7 +363,6 @@ function updatetotal() {
 }
 
 document.addEventListener("DOMContentLoaded", ready);
-
 
 
 
